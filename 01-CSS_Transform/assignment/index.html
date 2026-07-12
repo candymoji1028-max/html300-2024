@@ -5,12 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <title>Boba & Moji's Adventure</title>
 </head>
 <body>
-  <main class="main">
-    <h1>Hi Class!!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nesciunt? Architecto labore qui tempore, aperiam dignissimos, atque voluptas suscipit, provident adipisci ipsa fuga veniam vel vero totam distinctio sunt voluptatum!</p>
+  <!-- This web page is inspired by my cartoon animation project, Boba & Moji's Adventure, which I plan to publish on YouTube-->
+  <!-- This week I created only the Home page. Additional pages will be added in the upcoming weeks.-->
+
+  <nav class="nav">
+  <ul class="nav__list">
+    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+    <li class="nav__item"><a href="#" class="nav__link">Meet the Characters</a></li>
+    <li class="nav__item"><a href="#" class="nav__link">Episodes</a></li>
+    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+  </ul>
+</nav>
+
+  <main class="hero">
+    <!-- Title of cartoon series -->
+    <!-- using BEM style naming -->
+    <h1 class="hero__title">Boba & Moji's Adventure</h1>
+
+    <!-- Tagline to introduce the theme -->
+    <p class="hero__subtitle">A girl, a puppy, and endless adventures.</p>
+
+    <!-- Animated card -->
+    <div class="hero__card">
+      <!-- Cartoon image -->
+      <img src="images/boba-moji.png" alt="Boba and Moji" class="hero__image">
+
+      <!-- Button with animation -->
+      <button class="hero__button" onclick="alert('YouTube channel coming soon!')">Watch on Youtube</button>
+    </div>
   </main>
 </body>
 </html>
