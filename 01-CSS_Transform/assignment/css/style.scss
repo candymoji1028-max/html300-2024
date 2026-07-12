@@ -1,3 +1,156 @@
 h1 {
-  color: dodgerblue;
+  color: dodgerblue; // main heading color
+}
+/*--------------------------------------------
+Body section
+---------------------------------------------*/
+body {
+  background: #fdf3f7;   // soft pastel pink background
+  margin: 0; // remove default browser margin
+  font-family: 'Fredoka One', sans-serif; //cartoon style font
+}
+
+/*--------------------------------------------
+Variables
+---------------------------------------------*/
+$primary-color: #ff7eb9; //pink theme color for buttons and links
+$secondary-color: #ffb347; //warm orange color
+$transition-speed: 0.3s; //default transition speed
+$hover-scale: 1.05; //slight zoom effect on hover
+$card-bg: #ffffff; //white background for hero card
+$card-shadow: rgba(0, 0, 0, 0.15); //soft shadow for card depth
+
+/*--------------------------------------------
+Mixins
+---------------------------------------------*/
+@mixin smooth-transition {
+  transition: all $transition-speed ease-in-out; //smooth animation for any property
+}
+
+@mixin flex-center-column {
+  display: flex; //enable flexbox
+  flex-direction: column; //stack items vertically
+  align-items: center; //center items horizontally
+  justify-content: center; //center items vertically
+}
+
+/*--------------------------------------------
+Hero section
+----------------------------------------------*/
+.hero {
+  @include flex-center-column; //center hero content using mixin
+  padding: 2rem; //spacing around hero section
+  text-align: center; //center text alignment
+}
+/*--------------------------------------------
+Hero Card Animation
+----------------------------------------------*/
+.hero__card {
+  background: $card-bg; //white card background
+  padding: 2rem; //inner spacing
+  border-radius: 16px; //rounded corner
+  box-shadow: 0 4px 10px $card-shadow; //soft shadow for depth
+  @include smooth-transition; //smooth hover animation
+  transform: scale(1); //default size
+
+  @include flex-center-column; //center card content
+
+  max-width: 320px; //limit card width
+  width: 100%; //make card responsive
+  margin: 0 auto; //center card horizontally
+
+  &:hover {
+    transform: scale($hover-scale) translateY(-6px); //slight zoom and lift effect
+    box-shadow: 0 10px 25px $card-shadow; //stronger shadow on hover
+  }
+}
+
+/*-------------------------------------------
+Hero Image
+--------------------------------------------*/
+.hero__image {
+  width: 100%; //make image responsive    
+  max-width: 250px; //limit max size
+  height: auto; //maintain aspect ratio
+  margin-bottom: 1rem; //space below image
+}
+
+/*------------------------------------------
+Button Animation
+-------------------------------------------*/
+.hero__button {
+  background: $primary-color; //pink button background
+  color: white; //white text
+  padding: 1rem 2rem; //button size
+  border-radius: 10px; //rounded corners
+  border: none; //remove default border
+  cursor: pointer; //pointer cursor on hover
+  font-size: 1.1rem; //slightly larger text
+  transition: transform 0.8s ease-in-out; //slow spin animation
+
+  width: 100%; //responsive width
+  max-width: 200px; //limit button size
+
+  &:hover {
+    transform: rotate(360deg); //full spin animation
+    background: darken($primary-color, 10%); //darker pink on hover
+  }
+}
+
+/*-----------------------------------------
+Mobile version
+------------------------------------------*/
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 1.8rem; //smaller title on mobile
+  }
+
+  .hero__subtitle {
+    font-size: 1rem; //smaller subtitle on mobile
+  }
+
+  .hero__card {
+    padding: 1rem; //reduce card padding on small screens
+  }
+
+  .nav__list {
+    flex-direction: column; //stack nav links vertically
+    gap: 1rem; //add spacing between links
+  }
+
+  .nav {
+    padding: 1rem; //reduce nav padding
+  }
+}
+
+/*-----------------------------------------
+Navigation section
+-------------------------------------------*/
+.nav {
+  background: #ffe9f3; // pastel pink background
+  padding: 1rem 2rem; //spacing around nav
+  display: flex; //flex layout
+  justify-content: center; //center nav items
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); //soft bottom shadow
+}
+
+.nav__list {
+  list-style: none; //remove bullet points
+  display: flex; //horizontal layout
+  gap: 2rem; //space between links
+  margin: 0; //remove default margin
+  padding: 0; //remove default padding
+}
+
+.nav__link {
+  text-decoration: none; //remove underline
+  font-size: 1.2rem; //larger text
+  color: $primary-color; //pink link color
+  font-weight: bold; //bold text
+  @include smooth-transition; //smooth hover animation
+
+  &:hover {
+    color: $secondary-color; //warm orange hover color
+    transform: scale(1.1); //slight zoom on hover
+  }
 }
