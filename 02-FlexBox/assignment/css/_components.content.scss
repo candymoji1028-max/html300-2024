@@ -1,3 +1,5 @@
+
+
 html {
     box-sizing: border-box;
 }
@@ -8,6 +10,244 @@ html {
     box-sizing: inherit;
 }
 
-.main {
-    padding: 2rem;
+
+/*---------------------------------------------------------
+Use CSS Grid for the overall page layout
+Set up the width and the main grid container of the page
+header, nav, sidebar, main, footer will be placed on this grid.
+-----------------------------------------------------------*/
+.wrapper {
+    max-width: 1200px; //per mockup
+    width: 100%;
+    margin: 0 auto; // center the wrapper
+}
+
+.page {
+    display: grid; // css Grid container
+    //Bonus: Use grid templating and repeat techniques
+    grid-template-columns: repeat(12, 1fr); // create 12 equal-width columns and each column get 1 fraction of the available space
+    column-gap: 0; // no spacing left-right
+    row-gap: 0; // no spacing top-bottom
+}
+/*---------------------------------------------------------
+Header section style per mockup xd file
+----------------------------------------------------------*/
+.header {
+    height: $header-height; // height of the header 149px match the mockup
+    background-color: $color-header; // red
+    grid-column: 1 / span 12; // width controlled by css grid. Full width in the grid
+
+    //Use Flexbox for aligning content within section
+    display: flex; // enable flexbox
+    justify-content: center; // center horizontally
+    align-items: center; // center vertically
+}
+
+.header__title {
+    font-family: $font-primary; // font style
+    font-size: $font-size; // font size
+    color: $color-text; //font color
+}
+
+/*--------------------------------------------------------
+Navigation section style per mockup xd file
+----------------------------------------------------------*/
+.nav {
+    grid-column: 1 / span 12; // Full width in the grid
+    height: $nav-height; // 81px match the mockup
+    background-color: $color-nav; // green
+    padding: 0 2rem; // spacing left/right
+
+    //Use Flexbox for aligning content within section
+    display: flex; //enable flexbox
+    align-items: center; // vertically center nav items
+   
+}
+
+.nav__list {
+    //Use Flexbox for aligning content within section
+    display: flex; //enable flexbox
+    flex: 1; //allow the list to expand and fill horizontal space
+    justify-content: space-between; // evenly spread across the bar
+    align-items: center; //vertically center each nav item within the nav bar
+
+    margin: 0; //remove default margin
+    padding: 0; //remove default padding
+    list-style: none; //remove default bullet points
+
+}
+
+.nav__link {
+    font-family: $font-primary; // font style
+    font-size: $font-size; // font size
+    color: $color-text; //font color
+    text-decoration: none;
+}
+
+/*-------------------------------------------------------
+Sidebar section
+---------------------------------------------------------*/
+.sidebar {
+    grid-column: 1 / span 4; //1200px divided by 12 columns = 100px per column, 374px = 3.7 columns
+    //height: $sidebar-height; // 649px comment out to let the content fill the space
+    background-color: $color-sidebar; //purple
+    padding: 2rem; //spacing so content does not touch the edge
+
+    //Use Flexbox for aligning content within section
+    display: flex; //enable flexbox layout
+    justify-content: center; //center content horizontally
+    align-items: center; //center content vertically
+    text-align: center; //center text inside the sidebar
+}
+
+.sidebar__title {
+    font-family: $font-primary; //apply font primary variable
+    font-size: $font-size; //apply font size variable
+    color: $color-text; //apply font color variable
+}
+
+/*-------------------------------------------------------
+Main content section
+---------------------------------------------------------*/
+.hero {
+    grid-column: 5 / span 8; //826px ~ 8.26 columns
+    background-color: $color-main; //orange
+    //min-height: $main-height; //649px comment out to let the content fill the space
+    padding: 2rem; //inner spacing
+    min-height: auto;
+
+    //Use Flexbox for aligning content within section
+    display: flex; //enable flexbox layout
+    flex-direction: column; //stack items vertically
+    align-items: center; //center horizontally
+    text-align: center; //center text inside the main content
+    justify-content: flex-start; // to keep title and subtitle at the top
+}
+
+.hero__title {
+    font-family: $font-primary; //apply font primary variable
+    font-size: $font-size; //apply font size variable
+    color: $color-text; //apply font color variable
+    text-align: center; //center text
+    margin-bottom: 1rem; //add space below the title
+}
+
+.hero__subtitle {
+    font-size: $font-size; //apply font size variable
+    color: $color-text; //apply font color variable
+    text-align: center; //center text
+}
+
+/*-------------------------------------------
+Hero Image (from assignment1)
+--------------------------------------------*/
+.hero__image {
+  width: 100%; //make image responsive    
+  max-width: 250px; //limit max size
+  height: auto; //maintain aspect ratio
+  margin-bottom: 1rem; //space below image
+  
+}
+/*-------------------------------------------
+Hero Card 
+--------------------------------------------*/
+.hero__card {
+  background: $color-main; //apply color variable
+  padding: 2rem; //inner spacing
+  border-radius: 16px; //rounded corner
+  max-width: 320px; //limit card width
+  width: 100%; //make card responsive
+  margin: 0 auto; //center card horizontally
+}
+
+/*------------------------------------------
+Button Animation (from assignment1)
+-------------------------------------------*/
+.hero__button {
+  background: $primary-color; //pink button background
+  color: $color-text; //white text
+  padding: 0.5rem 0.5rem; //button size
+  border-radius: 10px; //rounded corners
+  border: none; //remove default border
+  cursor: pointer; //pointer cursor on hover
+  font-size: 1.1rem; //slightly larger text
+  transition: transform 0.8s ease-in-out; //slow spin animation
+
+  width: 100%; //responsive width
+  max-width: 200px; //limit button size
+  
+  &:hover {
+    transform: rotate(360deg); //full spin animation
+    background: darken($primary-color, 10%); //darker pink on hover
+  }
+}
+
+/*--------------------------------------------
+Footer section
+---------------------------------------------*/
+.footer {
+    grid-column: 1 / span 12; //full width of 12-column grid
+    background-color: $color-footer; //apply color variable
+    //height: $footer-height; comment out to let the content fill the space
+    padding: 1.5rem 0; //add space above and below content
+
+    //Use Flexbox for aligning content within section
+    display: flex; //enable flexbox layout
+    justify-content: center; //center content horizontally
+    align-items: center; //center content vertically
+    text-align: center; //center text inside footer
+}
+
+.footer__title {
+    font-family: $font-primary; //apply font variable
+    font-size: $font-size; //apply font size variable
+    color: $color-text; //apply text color variable
+    text-align: center; //center footer title text
+}
+
+/*-------------------------------------------
+Use media queries to make layout responsive
+---------------------------------------------*/
+//Tablet breakpoint
+@media (max-width: 768px) {
+    .sidebar {
+        grid-column: 1 / span 12; //stack the sidebar above the main content
+    }
+    .hero {
+        grid-column: 1 / span 12; //stack the hero section below the sidebar
+    }
+    .nav__list {
+        flex-wrap: wrap; //enable wrapping of nav links
+        gap: 1rem; //add spacing between wrapped items
+        justify-content: center; //center wrapped nav items
+    }
+}
+
+//Mobile breakpoint
+@media (max-width: 480px) {
+    .sidebar {
+        grid-column: 1 / span 12; //sidebar spans full width
+    }
+    .hero {
+        grid-column: 1 / span 12; //main content spans full width
+    }
+    .hero__title { 
+        font-size: 1rem; //reduce hero title size
+    }
+    .hero__subtitle { 
+        font-size: 1rem; //reduce hero subtitle size
+    }
+    .hero__card { 
+        padding: 1rem; //add smaller padding inside hero card
+    }
+    .nav__list { 
+        flex-direction: column; //stack nav links vertically
+        gap: 1rem; //spacing between links
+        justify-content: flex-start; //override desktop space-between
+        align-items: center; //center alignment horizontally
+    }
+    .nav { 
+        height: auto; //remove fixed height so nav can expand
+        padding: 1rem; //add padding for mobile layout
+    }
 }
