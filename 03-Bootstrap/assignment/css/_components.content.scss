@@ -11,3 +11,24 @@ html {
 .main {
     padding: 2rem;
 }
+
+/*Images responsive*/
+.gallery-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/*stretch cards equally in the grid*/
+.card {
+    height: 100%;
+}
+
+/*Style grid box*/
+.grid-box {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
