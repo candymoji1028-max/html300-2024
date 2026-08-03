@@ -1,15 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="css/style.css" />
-        <title>Assignment 06 - Bootstrap 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--Compile Bootstrap and custom SCSS-->
+        <link rel="stylesheet" href="css/style.css">
+        <title>Home Page</title>
     </head>
     <body>
-        <main class="main">
-          
-        </main>
+        <!--NAVBAR-->
+        <!--show full menu on large screen, collapse on small screens, use white text, and blue background-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-white" href="index.html">My Site</a>
+                <!--when click, toggle open/close menu-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="images.html">Photo Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="grid.html">Adventure Map</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="accordion.html">Story Moments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!--Jumbotron-->
+        <!--add full-width container inside the jumbotron with padding and margin-->
+        <div class="p-5 mb-4 bg-light rounded-3 mt-4">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Welcome to Boba & Moji's Adventure</h1>
+                    <p class="fs-4">
+                        A tiny world full of big surprises.
+                    </p>
+
+                    <!--Add button with tooltip-->
+                    <button class="btn btn-primary mt-3" data-bs-toggle="tooltip" title="YouTube channel coming soon!">
+                        Watch on Youtube
+                    </button>
+            </div>
+        </div>
+
+        <!--Create a container for a main content-->
+            
+        <div class="container">
+            <h2 class="fw-bold">Story</h2>
+                <p>
+                    Boba and Moji love exploring new places — from quiet forests to sunny meadows. Every morning begins with a spark of curiosity as they peek outside their cozy home, wondering what new surprises the day will bring. Whether it's a fluttering butterfly, a friendly bunny, or a shimmering river, the world around them is full of tiny wonders waiting to be discovered. Their adventures remind us that even the smallest moments can hold the biggest joy.     
+                </p>
+
+                <p>
+                    As they wander through their colorful world, Boba and Moji learn something new each day. They meet new friends, find hidden paths, and share laughter along the way. Moji's playful energy keeps the journey lively, while Boba's gentle nature brings calm to every adventure. Together, they show that exploring with someone you care about makes every place feel magical. Follow along as they continue their journey, discovering beauty in every corner of their little universe.
+                </p>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Tooltip initialization -->
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+        </script>
+
+        <footer class="text-center py-4 mt-5 bg-light">
+            <p class="mb-0">&copy; 2026 Boba & Moji's Adventure</p>
+        </footer>
+
     </body>
 </html>
